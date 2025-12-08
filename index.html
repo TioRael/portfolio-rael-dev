@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israel Menezes | Desenvolvedor Web Júnior</title>
+    
+    <meta name="description" content="Portfólio de Israel Menezes de Andrade, Desenvolvedor Web Júnior com experiência em HTML, CSS, JavaScript, React e Supabase.">
+    <meta name="author" content="Israel Menezes de Andrade">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    </head>
+<body>
+    
+    <ul class="skip-links">
+        <li><a href="#main-content" class="sr-only-focusable">Pular para Conteúdo Principal</a></li>
+        <li><a href="#main-nav" class="sr-only-focusable">Pular para Navegação</a></li>
+    </ul>
+
+    <header id="main-header">
+        <nav id="main-nav" aria-label="Navegação Principal" class="container">
+            <h1>Israel.Dev</h1>
+            <ul>
+                <li><a href="#sobre" data-translate="nav_about">Sobre</a></li>
+                <li><a href="#projetos" data-translate="nav_projects">Projetos</a></li>
+                <li><a href="#skills" data-translate="nav_skills">Habilidades</a></li>
+                <li><a href="#contato" data-translate="nav_contact">Contato</a></li>
+            </ul>
+            </nav>
+    </header>
+
+    <main id="main-content">
+        
+        <section id="hero" class="container">
+            <p>Olá, eu sou Israel Menezes.</p>
+            <h2 data-translate="hero_title">Desenvolvedor Web Júnior</h2>
+            <p data-translate="hero_subtitle">Front-End, Back-End, Automação e Foco em Soluções Escaláveis.</p>
+            <a href="#projetos" class="button primary" data-translate="hero_button">Ver Projetos</a>
+        </section>
+
+        <section id="sobre" aria-labelledby="sobre-titulo" class="container glass-card">
+            <h2 id="sobre-titulo" data-translate="about_title">🎯 Sobre Mim e Objetivos</h2>
+            
+            <p data-translate="about_paragraph_1">
+                Sou Desenvolvedor Web Júnior com perfil criativo, curioso e apaixonado por tecnologia. 
+                Minha experiência inclui desenvolvimento front-end e back-end, sites responsivos e sistemas de automação de processos.
+            </p>
+            <p data-translate="about_paragraph_2">
+                Busco atuar em equipes inovadoras, contribuindo com soluções eficientes, escaláveis e seguras, evoluindo em ambientes ágeis e colaborativos.
+            </p>
+
+            <a href="assets/Curriculo - 2025.pdf" download class="button secondary" data-translate="about_cv_button">Baixar CV</a>
+        </section>
+
+        <section id="skills" aria-labelledby="skills-titulo" class="container">
+            <h2 id="skills-titulo" data-translate="nav_skills">Habilidades</h2>
+            </section>
+
+        <section id="projetos" aria-labelledby="projetos-titulo" class="container">
+            <h2 id="projetos-titulo" data-translate="nav_projects">Projetos</h2>
+            <div id="projects-container" class="gallery">
+                </div>
+        </section>
+        
+        <section id="contato" aria-labelledby="contato-titulo" class="container glass-card">
+            <h2 id="contato-titulo" data-translate="nav_contact">Contato</h2>
+            
+            <form id="contact-form" action="[Seu_Endpoint_Aqui]" method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input type="text" id="name" name="name" required aria-required="true" placeholder="Seu nome completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Seu Email:</label>
+                    <input type="email" id="email" name="email" required aria-required="true" placeholder="seu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Sua mensagem para Israel"></textarea>
+                </div>
+
+                <button type="submit" class="button primary">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="main-footer" class="container">
+        <p>&copy; 2025 Israel Menezes de Andrade. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/israel-menezes-perfil/" target="_blank" aria-label="LinkedIn de Israel Menezes">LinkedIn</a>
+            <a href="https://github.com/TioRael" target="_blank" aria-label="GitHub de TioRael">GitHub</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

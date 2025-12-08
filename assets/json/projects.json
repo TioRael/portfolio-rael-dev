@@ -1,0 +1,24 @@
+[
+    {
+        "id": "nerd-selvagem",
+        "title_pt": "Site Oficial do Canal Nerd Selvagem",
+        "title_en": "Official Nerd Selvagem Channel Website",
+        "description_pt": "Desenvolvimento completo do layout, funcionalidades e otimização para SEO, utilizando REACT, CSS e JavaScript.",
+        "description_en": "Complete layout, functionality development, and SEO optimization, using REACT, CSS, and JavaScript.",
+        "image": "assets/img/projeto-nerdselvagem.webp",
+        "stack": ["React", "JavaScript", "CSS3", "SEO"],
+        "link_live": "https://www.nerdselvagem.com.br/",
+        "link_repo": ""
+    },
+    {
+        "id": "juplutera",
+        "title_pt": "Enciclopédia Juplutera (Imersão DEV)",
+        "title_en": "Juplutera Encyclopedia (DEV Immersion)",
+        "description_pt": "Desenvolvimento full-stack de landing page com busca inteligente utilizando HTML5, CSS3, JavaScript e integração com Google Gemini (IA generativa).",
+        "description_en": "Full-stack development of a smart search landing page using HTML5, CSS3, JavaScript, and integration with Google Gemini (generative AI).",
+        "image": "assets/img/projeto-juplutera.webp",
+        "stack": ["HTML5", "CSS3", "JavaScript", "Gemini AI"],
+        "link_live": "https://tiorael.github.io/juplutera-enciclopedia/",
+        "link_repo": "https://github.com/TioRael/juplutera-enciclopedia"
+    }
+]

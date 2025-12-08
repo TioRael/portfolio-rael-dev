@@ -1,0 +1,270 @@
+/*==================================
+  1. RESET BÁSICO E TIPOGRAFIA
+==================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Transição suave para o tema */
+}
+
+/* Container de largura máxima */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+/*==================================
+  2. VARIÁVEIS CSS (TEMA CLARO/ESCURO)
+==================================*/
+:root {
+    /* -- PALETA PADRÃO (CLARO) -- */
+    --color-primary: #4CAF50;    /* Verde Principal (Seu tema) */
+    --color-secondary: #388E3C;  /* Verde Mais Escuro */
+    --color-background: #F4F4F9; /* Fundo muito claro */
+    --color-surface: #FFFFFF;    /* Para cards e containers */
+    --color-text-base: #333333;  /* Texto escuro */
+    --color-text-light: #666666; /* Texto auxiliar */
+    --color-shadow: rgba(0, 0, 0, 0.1); /* Sombra suave */
+
+    /* Variáveis para Glassmorphism */
+    --glass-background-opacity: 0.8;
+    --glass-border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* -- TEMA ESCURO (DARK MODE) -- */
+body.dark-mode {
+    --color-primary: #81C784;     /* Verde mais claro para destaque */
+    --color-secondary: #66BB6A;   
+    --color-background: #121212;  /* Fundo muito escuro */
+    --color-surface: #1E1E1E;     /* Superfícies escuras */
+    --color-text-base: #E0E0E0;   /* Texto muito claro */
+    --color-text-light: #B0B0B0;  
+    --color-shadow: rgba(255, 255, 255, 0.05); 
+
+    /* Ajuste para Glassmorphism no Dark Mode */
+    --glass-border-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--color-background);
+}
+
+/* Aplica as variáveis ao body */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-base);
+}
+
+/*==================================
+  3. ACESSIBILIDADE E FOCO
+==================================*/
+
+/* Esconde o elemento visualmente (para leitores de tela) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Torna o Skip Link visível APENAS quando recebe foco (Tab) */
+.skip-links li a.sr-only-focusable:focus {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 9999; 
+    padding: 10px;
+    background: var(--color-primary);
+    color: var(--color-surface);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Foco Visível para Navegação por Teclado */
+a:focus, 
+button:focus,
+input:focus, 
+textarea:focus {
+    outline: 3px solid var(--color-primary); /* Anel de foco verde */
+    outline-offset: 3px; 
+    border-radius: 5px; 
+}
+a:focus:not(:focus-visible), 
+button:focus:not(:focus-visible) {
+    outline: none; /* Remove o outline para cliques de mouse */
+}
+
+
+/*==================================
+  4. ESTILOS GERAIS E BOTÕES
+==================================*/
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Estilos de Botões (Base) */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s, color 0.3s;
+    border: none;
+}
+
+.button.primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.button.primary:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px); 
+}
+
+.button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.button.secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+/*==================================
+  5. EFEITO GLASSMORPHISM
+==================================*/
+.glass-card {
+    /* Fundo semitransparente (branco ou escuro, dependendo do tema) */
+    background-color: hsla(0, 0%, 100%, var(--glass-background-opacity));
+    
+    /* O SEGREDO: aplica o desfoque */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); 
+    
+    border: 1px solid var(--glass-border-color);
+    border-radius: 15px; 
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 8px 32px 0 var(--color-shadow);
+}
+
+/* Ajuste do Glassmorphism para Dark Mode */
+body.dark-mode .glass-card {
+    /* Usando um fundo ligeiramente mais escuro no modo noturno */
+    background-color: hsla(0, 0%, 12%, var(--glass-background-opacity));
+}
+
+
+/*==================================
+  6. LAYOUT (Mobile-First)
+==================================*/
+/* Header e Navegação */
+#main-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-surface);
+    box-shadow: 0 2px 4px var(--color-shadow);
+}
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+#main-nav ul {
+    list-style: none;
+    display: none; /* Esconde menu em mobile, pode ser ativado por JS (Hambúrguer) */
+}
+#main-nav h1 {
+    font-size: 1.5em;
+    color: var(--color-primary);
+}
+
+/* Seção HERO */
+#hero {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+#hero h2 {
+    font-size: 2.5em;
+    margin: 10px 0 20px;
+}
+
+/* Formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-text-light);
+    border-radius: 5px;
+    background-color: var(--color-surface);
+    color: var(--color-text-base);
+    transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+}
+
+
+/*==================================
+  7. RESPONSIVIDADE (Media Queries)
+==================================*/
+
+/* --- Tablet (a partir de 768px) --- */
+@media screen and (min-width: 768px) {
+    /* Mostra o menu de navegação completo */
+    #main-nav ul {
+        display: flex;
+    }
+    #main-nav ul li {
+        margin-left: 20px;
+    }
+
+    /* Layout de projetos em grade */
+    #projects-container.gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+}
+
+/* --- Desktop (a partir de 1025px) --- */
+@media screen and (min-width: 1025px) {
+    .container {
+        padding: 50px 20px;
+    }
+    
+    #projects-container.gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

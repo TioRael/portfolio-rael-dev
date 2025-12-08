@@ -1,0 +1,28 @@
+{
+    "pt": {
+        "nav_about": "Sobre",
+        "nav_projects": "Projetos",
+        "nav_skills": "Habilidades",
+        "nav_contact": "Contato",
+        "hero_title": "Desenvolvedor Web Júnior",
+        "hero_subtitle": "Front-End, Back-End, Automação e Foco em Soluções Escaláveis.",
+        "hero_button": "Ver Projetos",
+        "about_title": "🎯 Sobre Mim e Objetivos",
+        "about_paragraph_1": "Sou Desenvolvedor Web Júnior com perfil criativo, curioso e apaixonado por tecnologia. Minha experiência inclui desenvolvimento front-end e back-end, sites responsivos e sistemas de automação de processos.",
+        "about_paragraph_2": "Busco atuar em equipes inovadoras, contribuindo com soluções eficientes, escaláveis e seguras, evoluindo em ambientes ágeis e colaborativos.",
+        "about_cv_button": "Baixar CV"
+    },
+    "en": {
+        "nav_about": "About",
+        "nav_projects": "Projects",
+        "nav_skills": "Skills",
+        "nav_contact": "Contact",
+        "hero_title": "Junior Web Developer",
+        "hero_subtitle": "Front-End, Back-End, Automation, and Focus on Scalable Solutions.",
+        "hero_button": "View Projects",
+        "about_title": "🎯 About Me and Goals",
+        "about_paragraph_1": "I am a Junior Web Developer with a creative, curious profile, and a passion for technology. My experience includes front-end and back-end development, responsive websites, and process automation systems.",
+        "about_paragraph_2": "I seek opportunities to work in innovative teams, contributing efficient, scalable, and secure solutions, growing professionally in agile and collaborative environments.",
+        "about_cv_button": "Download CV"
+    }
+}
