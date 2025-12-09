@@ -1,0 +1,57 @@
+[
+    {
+        "name": "HTML5",
+        "category": "Frontend",
+        "icon_class": "devicon-html5-plain"
+    },
+    {
+        "name": "CSS3",
+        "category": "Frontend",
+        "icon_class": "devicon-css3-plain"
+    },
+    {
+        "name": "JavaScript",
+        "category": "Frontend",
+        "icon_class": "devicon-javascript-plain"
+    },
+    {
+        "name": "React",
+        "category": "Frontend",
+        "icon_class": "devicon-react-original"
+    },
+    {
+        "name": "Supabase",
+        "category": "Backend/DB",
+        "icon_class": "icon-supabase"
+    },
+    {
+        "name": "Git",
+        "category": "Ferramentas",
+        "icon_class": "devicon-git-plain"
+    },
+    {
+        "name": "VS Code",
+        "category": "Ferramentas",
+        "icon_class": "devicon-vscode-plain"
+    },
+    {
+        "name": "Microsoft Office",
+        "category": "Ferramentas",
+        "icon_class": "devicon-office365-plain" 
+    },
+    {
+        "name": "Adobe Premiere Pro",
+        "category": "Design/Editing",
+        "icon_class": "devicon-premierepro-plain"
+    },
+    {
+        "name": "Adobe Photoshop",
+        "category": "Design/Editing",
+        "icon_class": "devicon-photoshop-plain"
+    },
+    {
+        "name": "Adobe Illustrator",
+        "category": "Design/Editing",
+        "icon_class": "devicon-illustrator-plain"
+    }
+]

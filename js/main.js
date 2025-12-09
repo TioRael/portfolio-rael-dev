@@ -1,160 +1,155 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- 1. CONFIGURAÇÃO DE VARIÁVEIS E FUNÇÕES GLOBAIS ---
+   
+    const navControls = document.getElementById('nav-controls');
     let currentLang = localStorage.getItem('lang') || 'pt';
-    const mainNav = document.getElementById('main-nav');
-
-    // Função Genérica para Fetch de JSON
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    // --- 1. EFEITO DIGITAÇÃO ---
+    const setupTypewriter = (lang) => {
+        const el = document.getElementById('typing-text');
+        if (!el) return;
+        const texts = lang === 'pt'
+            ? ["Desenvolvedor Web", "Front-End", "Back-End", "Freelancer"]
+            : ["Web Developer", "Front-End", "Back-End", "Freelancer"];
+        let textIndex = 0, charIndex = 0, isDeleting = false;
+       
+        if (window.typewriterTimeout) clearTimeout(window.typewriterTimeout);
+        const type = () => {
+            const current = texts[textIndex];
+            let speed = 100;
+            if (isDeleting) {
+                el.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+                speed = 50;
+            } else {
+                el.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            if (!isDeleting && charIndex === current.length) {
+                isDeleting = true;
+                speed = 2000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                speed = 500;
+            }
+            window.typewriterTimeout = setTimeout(type, speed);
+        };
+        type();
+    };
+    // --- 2. FETCH JSON ---
     const fetchJSON = async (path) => {
         try {
-            const response = await fetch(path);
-            if (!response.ok) throw new Error(`Erro ao carregar ${path}`);
-            return response.json();
-        } catch (error) {
-            console.error("Erro no fetch de JSON:", error);
+            const res = await fetch(path);
+            if (!res.ok) throw new Error(`Erro: ${path}`);
+            return await res.json();
+        } catch (e) {
+            console.error(e);
             return null;
         }
     };
-
-
-    // --- 2. TEMA CLARO/ESCURO (Persistência) ---
-    const setupThemeToggle = () => {
-        // Carrega tema salvo ou usa preferência do sistema
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
-            document.body.classList.add('dark-mode');
-        }
-
-        // Cria o botão de alternância
-        const toggleButton = document.createElement('button');
-        toggleButton.textContent = document.body.classList.contains('dark-mode') ? '💡 Claro' : '🌙 Escuro';
-        toggleButton.classList.add('button', 'secondary', 'theme-toggle');
-        
-        // Adiciona ao menu de navegação
-        mainNav.appendChild(toggleButton);
-
-        toggleButton.addEventListener('click', () => {
-            const isDark = document.body.classList.toggle('dark-mode');
-            
-            // Salva a nova preferência e atualiza o texto do botão
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            toggleButton.textContent = isDark ? '💡 Claro' : '🌙 Escuro';
-        });
-    };
-
-
-    // --- 3. BILINGUISMO (Tradução da Página) ---
-    const translatePage = (localizationData, lang) => {
-        document.documentElement.lang = lang; 
-        const elements = document.querySelectorAll('[data-translate]');
-
-        elements.forEach(el => {
-            const key = el.getAttribute('data-translate');
-            if (localizationData[lang] && localizationData[lang][key]) {
-                el.textContent = localizationData[lang][key];
-            }
-        });
-    };
-
-    const setupLanguageToggle = (projectsData, localizationData) => {
-        const langButton = document.createElement('button');
-        langButton.textContent = currentLang === 'pt' ? 'EN' : 'PT';
-        langButton.classList.add('button', 'secondary', 'lang-toggle');
-        
-        // Adiciona ao menu de navegação, ao lado do toggle de tema
-        mainNav.appendChild(langButton); 
-
-        langButton.addEventListener('click', () => {
+    // --- 3. CONTROLE DE IDIOMA E TEMA ---
+    const initControls = (projectsData, localizationData) => {
+       
+        // 3.1 Idioma com Label
+        const langWrapper = document.createElement('div');
+        langWrapper.className = 'lang-wrapper';
+       
+        // Rótulo "Idioma:"
+        const langLabel = document.createElement('span');
+        langLabel.setAttribute('data-translate', 'ui_language_label');
+        langLabel.textContent = localizationData[currentLang].ui_language_label || "Idioma:";
+       
+        // Botão PT/EN
+        const langBtn = document.createElement('button');
+        langBtn.className = 'control-btn';
+        langBtn.textContent = currentLang.toUpperCase();
+        langBtn.onclick = () => {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
             localStorage.setItem('lang', currentLang);
-            langButton.textContent = currentLang === 'pt' ? 'EN' : 'PT';
-            
-            // Recarrega o conteúdo
-            loadProjects(projectsData, currentLang);
+            langBtn.textContent = currentLang.toUpperCase();
+           
             translatePage(localizationData, currentLang);
-        });
+            loadProjects(projectsData, currentLang);
+        };
+        langWrapper.appendChild(langLabel);
+        langWrapper.appendChild(langBtn);
+        navControls.appendChild(langWrapper);
+        // 3.2 Tema (Dark/Light)
+        const themeBtn = document.createElement('button');
+        themeBtn.className = 'control-btn';
+        themeBtn.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        if (currentTheme === 'dark') document.body.classList.add('dark-mode');
+        themeBtn.onclick = () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        };
+        navControls.appendChild(themeBtn);
     };
-
-
-    // --- 4. CARREGAMENTO DOS PROJETOS DINÂMICOS ---
-    const loadProjects = (projectsData, lang) => {
+    // --- 4. TRADUÇÃO ---
+    const translatePage = (data, lang) => {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (data[lang]?.[key]) el.innerHTML = data[lang][key];
+        });
+        setupTypewriter(lang);
+    };
+    // --- 5. CARREGAR PROJETOS ---
+    const loadProjects = (data, lang) => {
         const container = document.getElementById('projects-container');
-        if (!container) return; 
-        container.innerHTML = ''; 
-
-        projectsData.forEach(project => {
-            const titleKey = `title_${lang}`;
-            const descKey = `description_${lang}`;
-            
-            // Cria o Card do Projeto (com Glassmorphism)
+        if (!container) return;
+        container.innerHTML = '';
+        const buttonText = lang === 'pt' ? 'Ver Detalhes' : 'View Details';
+        data.forEach(p => {
+            const title = p[`title_${lang}`];
+            const desc = p[`description_${lang}`];
+            const imgPath = p.image || 'https://placehold.co/600x400/1e293b/FFF?text=Code';
             const card = document.createElement('article');
-            card.classList.add('project-card', 'glass-card'); 
-            
-            // Template String para injetar o HTML
+            card.className = 'project-card';
             card.innerHTML = `
-                <img 
-                    src="${project.image}" 
-                    alt="Imagem do projeto ${project.title_pt}" 
-                    loading="lazy"
-                    width="400" 
-                    height="300"
-                >
-                <h3 class="project-title">${project[titleKey]}</h3>
-                <p class="project-desc">${project[descKey]}</p>
-                <div class="project-stack">
-                    ${project.stack.map(tech => `<span class="badge">${tech}</span>`).join('')}
+                <div class="project-img-wrapper">
+                    <img src="${imgPath}" alt="${title}" loading="lazy">
                 </div>
-                <div class="project-links">
-                    <a href="${project.link_live}" target="_blank" class="button primary">Demo Live</a>
-                    ${project.link_repo ? `<a href="${project.link_repo}" target="_blank" class="button secondary">Repositório</a>` : ''}
+                <div class="project-content">
+                    <h3 class="project-title">${title}</h3>
+                    <p class="project-desc">${desc}</p>
+                    <div class="project-links">
+                        <a href="${p.link_live}" target="_blank" class="pixel-btn primary" style="font-size:0.8rem">Demo</a>
+                        ${p.link_repo ? `<a href="${p.link_repo}" target="_blank" class="pixel-btn secondary" style="font-size:0.8rem">Code</a>` : ''}
+                        <a href="projetos.html?id=${p.id}" class="pixel-btn secondary" style="font-size:0.8rem">${buttonText}</a>
+                    </div>
                 </div>
             `;
             container.appendChild(card);
         });
     };
-
-
-    // --- 5. VALIDAÇÃO DE FORMULÁRIO (Simples) ---
-    const setupFormValidation = () => {
-        const form = document.getElementById('contact-form');
-        if (!form) return;
-
-        form.addEventListener('submit', (e) => {
-            const emailInput = document.getElementById('email');
-
-            // Validação simples de email
-            if (!emailInput.value.includes('@') || !emailInput.value.includes('.')) {
-                e.preventDefault(); 
-                alert("Por favor, digite um email válido.");
-                emailInput.focus();
-            }
-            // A validação 'required' do HTML5 cuida do resto dos campos obrigatórios.
+    // --- 6. CARREGAR SKILLS ---
+    const loadSkills = async () => {
+        const data = await fetchJSON('assets/json/skills.json');
+        const container = document.getElementById('skills-container');
+        if (!container || !data) return;
+        container.innerHTML = '';
+        data.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'skill-card';
+            div.innerHTML = `<i class="${s.icon_class} colored"></i><h4>${s.name}</h4>`;
+            container.appendChild(div);
         });
     };
-
-
-    // --- 6. FUNÇÃO PRINCIPAL DE INICIALIZAÇÃO ---
+    // --- INIT ---
     const initApp = async () => {
-        // Carrega dados e localização
-        const projectsData = await fetchJSON('assets/json/projects.json');
-        const localizationData = await fetchJSON('assets/json/localization.json');
-
-        if (projectsData && localizationData) {
-            // Inicializa as funcionalidades
-            setupThemeToggle();
-            setupLanguageToggle(projectsData, localizationData);
-            setupFormValidation();
-            
-            // Primeira renderização do conteúdo
-            loadProjects(projectsData, currentLang);
-            translatePage(localizationData, currentLang);
-        } else {
-            document.getElementById('projects-container').innerHTML = 
-                '<p>Erro ao carregar os dados dos projetos. Verifique os arquivos JSON.</p>';
+        const [projects, localization] = await Promise.all([
+            fetchJSON('assets/json/projects.json'),
+            fetchJSON('assets/json/localization.json')
+        ]);
+        if (projects && localization) {
+            initControls(projects, localization);
+            loadProjects(projects, currentLang);
+            translatePage(localization, currentLang);
         }
+        await loadSkills();
     };
-
     initApp();
 });

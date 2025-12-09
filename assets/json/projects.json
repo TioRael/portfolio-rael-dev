@@ -2,23 +2,243 @@
     {
         "id": "nerd-selvagem",
         "title_pt": "Site Oficial do Canal Nerd Selvagem",
-        "title_en": "Official Nerd Selvagem Channel Website",
-        "description_pt": "Desenvolvimento completo do layout, funcionalidades e otimização para SEO, utilizando REACT, CSS e JavaScript.",
-        "description_en": "Complete layout, functionality development, and SEO optimization, using REACT, CSS, and JavaScript.",
-        "image": "assets/img/projeto-nerdselvagem.webp",
-        "stack": ["React", "JavaScript", "CSS3", "SEO"],
+        "title_en": "Official Website of Nerd Selvagem Channel",
+        "image": "assets/img/projeto-nerdselvagem.png",
         "link_live": "https://www.nerdselvagem.com.br/",
-        "link_repo": ""
-    },
-    {
-        "id": "juplutera",
-        "title_pt": "Enciclopédia Juplutera (Imersão DEV)",
-        "title_en": "Juplutera Encyclopedia (DEV Immersion)",
-        "description_pt": "Desenvolvimento full-stack de landing page com busca inteligente utilizando HTML5, CSS3, JavaScript e integração com Google Gemini (IA generativa).",
-        "description_en": "Full-stack development of a smart search landing page using HTML5, CSS3, JavaScript, and integration with Google Gemini (generative AI).",
-        "image": "assets/img/projeto-juplutera.webp",
-        "stack": ["HTML5", "CSS3", "JavaScript", "Gemini AI"],
-        "link_live": "https://tiorael.github.io/juplutera-enciclopedia/",
-        "link_repo": "https://github.com/TioRael/juplutera-enciclopedia"
+        "link_repo": "https://github.com/SEU_USUARIO/nerdselvagem-site",
+        "overview_pt": "Site oficial do canal Nerd Selvagem, criado em React com foco em performance, interatividade e identidade visual própria. O projeto reúne informações sobre o universo de Juplutera, roletas de criação de personagens, página de vídeos, blog, área de download e integração com Supabase.\n\nO design é totalmente responsivo, otimizado para SEO e preparado para futuras expansões como sistema de login, biblioteca de conteúdo e integração com o BotJuplutera.",
+        "overview_en": "Official website of the Nerd Selvagem channel, built in React with focus on performance, interactivity and brand identity. The project includes pages about the Juplutera universe, character roulette system, videos, blog, download area and Supabase integration.\n\nFully responsive design, SEO optimized and prepared for future expansions like user accounts, content library and BotJuplutera integration.",
+        "role_pt": "Desenvolvedor Front-End e Arquiteto do Site",
+        "role_en": "Front-End Developer and Site Architect",
+        "problem_pt": [
+            "Falta de um site oficial centralizado para o canal",
+            "Dificuldade em engajar fãs com conteúdo interativo",
+            "Ausência de integração com banco de dados para conteúdo dinâmico",
+            "Design não otimizado para diferentes dispositivos",
+            "Falta de preparação para features futuras como login de usuários"
+        ],
+        "problem_en": [
+            "Lack of a centralized official website for the channel",
+            "Difficulty in engaging fans with interactive content",
+            "Absence of database integration for dynamic content",
+            "Non-optimized design for different devices",
+            "Lack of preparation for future features like user login"
+        ],
+        "goal_pt": [
+            "Criar um site performático e interativo",
+            "Implementar features como roletas de personagens e blog",
+            "Garantir responsividade e otimização SEO",
+            "Integrar com Supabase para gerenciamento de dados",
+            "Preparar a base para expansões futuras"
+        ],
+        "goal_en": [
+            "Create a performant and interactive website",
+            "Implement character roulettes and blog features",
+            "Ensure responsiveness and SEO optimization",
+            "Integrate with Supabase for data management",
+            "Prepare the base for future expansions"
+        ],
+        "solution_pt": {
+            "project_architecture": "Utilizei React com Vite para build rápida e eficiente. O design responsivo foi implementado com TailwindCSS, garantindo adaptação a todos os dispositivos.\nIntegração com Supabase para backend como serviço, facilitando o gerenciamento de dados.",
+            "developer_experience": "Animações suaves com Framer Motion para melhor interatividade.\nCódigo modular e escalável, com foco em SEO através de meta tags e estrutura semântica."
+        },
+        "solution_en": {
+            "project_architecture": "Used React with Vite for fast and efficient build. Responsive design implemented with TailwindCSS, ensuring adaptation to all devices.\nIntegration with Supabase for backend as a service, facilitating data management.",
+            "developer_experience": "Smooth animations with Framer Motion for better interactivity.\nModular and scalable code, with focus on SEO through meta tags and semantic structure."
+        },
+        "technical_implementation_pt": {
+            "core_technologies": [
+                "React",
+                "JavaScript",
+                "TailwindCSS",
+                "Framer Motion",
+                "Supabase",
+                "Vite"
+            ],
+            "key_features": [
+                "Sistema de roletas para criação de personagens",
+                "Páginas dedicadas ao universo de Juplutera",
+                "Blog e área de downloads",
+                "Conexão com Supabase para banco de dados",
+                "Otimização SEO"
+            ],
+            "architecture_patterns": [
+                "Componentes reutilizáveis em React",
+                "Gerenciamento de estado com React Hooks",
+                "Animações declarativas com Framer Motion",
+                "Backend serverless com Supabase"
+            ]
+        },
+        "technical_implementation_en": {
+            "core_technologies": [
+                "React",
+                "JavaScript",
+                "TailwindCSS",
+                "Framer Motion",
+                "Supabase",
+                "Vite"
+            ],
+            "key_features": [
+                "Character creation roulette system",
+                "Dedicated pages for the Juplutera universe",
+                "Blog and download area",
+                "Supabase integration for database",
+                "SEO optimization"
+            ],
+            "architecture_patterns": [
+                "Reusable components in React",
+                "State management with React Hooks",
+                "Declarative animations with Framer Motion",
+                "Serverless backend with Supabase"
+            ]
+        },
+        "challenges_and_learnings_pt": [
+            "Integração com Supabase: Aprendi a gerenciar autenticação e queries em tempo real",
+            "Otimização de performance: Implementei lazy loading e code splitting",
+            "Design responsivo: Testes em múltiplos dispositivos para garantir compatibilidade",
+            "SEO: Uso de ferramentas como Google Lighthouse para otimização"
+        ],
+        "challenges_and_learnings_en": [
+            "Supabase integration: Learned to manage authentication and real-time queries",
+            "Performance optimization: Implemented lazy loading and code splitting",
+            "Responsive design: Testing on multiple devices for compatibility",
+            "SEO: Using tools like Google Lighthouse for optimization"
+        ],
+        "final_thoughts_pt": [
+            "Impacto na comunidade: O site melhorou o engajamento dos fãs",
+            "Importância da documentação: Código bem documentado facilitou manutenção",
+            "Escalabilidade: Arquitetura permite adições futuras sem refatoração major",
+            "Benefícios open source: Potencial para contribuições da comunidade",
+            "Lições com dados em tempo real: Gerenciamento de conexões e sincronização"
+        ],
+        "final_thoughts_en": [
+            "Community impact: The site improved fan engagement",
+            "Documentation importance: Well-documented code facilitated maintenance",
+            "Scalability: Architecture allows future additions without major refactoring",
+            "Open source benefits: Potential for community contributions",
+            "Real-time data lessons: Connection management and synchronization"
+        ]
     }
+    ,
+{
+    "id": "super-troca-de-oleo",
+    "title_pt": "Site Institucional e Sistema da Super Troca de Óleo",
+    "title_en": "Super Troca de Óleo Institutional Website and System",
+    "image": "assets/img/projeto-supertrocadeoleo.png",
+    "link_live": "https://www.supertrocadeoleo.com.br",
+    "link_repo": "https://github.com/SEU_USUARIO/super-troca-de-oleo-site",
+    "overview_pt": "Site institucional e sistema web da Super Troca de Óleo, desenvolvido com foco em performance, segurança e experiência do usuário. O projeto conta com páginas de apresentação, catálogo de produtos, área do cliente com cadastro de veículos, simulação automática de orçamento, além de um painel administrativo completo.\n\nA aplicação é totalmente responsiva, integrada ao Supabase para autenticação e banco de dados, com deploy automatizado pela Vercel e versionamento via GitHub.",
+    "overview_en": "Institutional website and web system for Super Troca de Óleo, developed with focus on performance, security and user experience. The project includes presentation pages, product catalog, customer area with vehicle registration, automatic budget simulation, and a complete administrative dashboard.\n\nThe application is fully responsive, integrated with Supabase for authentication and database, with automated deployment via Vercel and versioning via GitHub.",
+    "role_pt": "Desenvolvedor Front-End e Arquiteto do Sistema",
+    "role_en": "Front-End Developer and System Architect",
+    "problem_pt": [
+        "Ausência de presença digital estruturada da empresa",
+        "Falta de um sistema para simulação de orçamento",
+        "Gestão manual de clientes e veículos",
+        "Dificuldade no controle de serviços e produtos",
+        "Baixa conversão online de clientes"
+    ],
+    "problem_en": [
+        "Lack of structured digital presence for the company",
+        "No system for budget simulation",
+        "Manual management of customers and vehicles",
+        "Difficulty controlling services and products",
+        "Low online customer conversion"
+    ],
+    "goal_pt": [
+        "Criar um site institucional moderno e confiável",
+        "Desenvolver um sistema de simulação automática de orçamento",
+        "Implementar cadastro de clientes e veículos",
+        "Criar um dashboard administrativo completo",
+        "Garantir segurança, performance e escalabilidade"
+    ],
+    "goal_en": [
+        "Create a modern and reliable institutional website",
+        "Develop an automatic budget simulation system",
+        "Implement customer and vehicle registration",
+        "Build a complete administrative dashboard",
+        "Ensure security, performance and scalability"
+    ],
+    "solution_pt": {
+        "project_architecture": "Arquitetura baseada em HTML, CSS e JavaScript puro no front-end, com integração total ao Supabase para autenticação, banco de dados e regras de segurança.\nDeploy contínuo na Vercel com versionamento de código via GitHub.",
+        "developer_experience": "Código organizado por módulos, páginas independentes e componentes reutilizáveis. Estrutura pensada para fácil manutenção e evolução do sistema."
+    },
+    "solution_en": {
+        "project_architecture": "Architecture based on pure HTML, CSS and JavaScript on the front-end, fully integrated with Supabase for authentication, database and security rules.\nContinuous deployment on Vercel with code versioning via GitHub.",
+        "developer_experience": "Code organized by modules, independent pages and reusable components. Structure designed for easy maintenance and system evolution."
+    },
+    "technical_implementation_pt": {
+        "core_technologies": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Supabase",
+            "GitHub",
+            "Vercel"
+        ],
+        "key_features": [
+            "Simulação automática de orçamento por veículo",
+            "Cadastro de usuários e veículos",
+            "Página de produtos com filtros",
+            "Dashboard administrativo completo",
+            "Sistema de autenticação seguro"
+        ],
+        "architecture_patterns": [
+            "Separação por módulos de páginas",
+            "Integração serverless com Supabase",
+            "Controle de acesso por níveis de usuário",
+            "Versionamento contínuo com Git"
+        ]
+    },
+    "technical_implementation_en": {
+        "core_technologies": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Supabase",
+            "GitHub",
+            "Vercel"
+        ],
+        "key_features": [
+            "Automatic vehicle budget simulation",
+            "User and vehicle registration",
+            "Product page with filters",
+            "Complete admin dashboard",
+            "Secure authentication system"
+        ],
+        "architecture_patterns": [
+            "Page modularization",
+            "Serverless integration with Supabase",
+            "Role-based access control",
+            "Continuous versioning with Git"
+        ]
+    },
+    "challenges_and_learnings_pt": [
+        "Integração segura com Supabase e controle de permissões",
+        "Criação de lógica de simulação de orçamento dinâmica",
+        "Estruturação de um painel administrativo completo",
+        "Organização de dados entre usuários, veículos e serviços"
+    ],
+    "challenges_and_learnings_en": [
+        "Secure integration with Supabase and permissions control",
+        "Creation of dynamic budget simulation logic",
+        "Structuring a complete administrative panel",
+        "Data organization between users, vehicles and services"
+    ],
+    "final_thoughts_pt": [
+        "Projeto elevou o nível digital da empresa",
+        "Facilitou a conversão de clientes via site",
+        "Reduziu processos manuais no atendimento",
+        "Criou uma base sólida para futuras automações",
+        "Sistema preparado para expansão"
+    ],
+    "final_thoughts_en": [
+        "Project elevated the company's digital presence",
+        "Improved customer conversion through the website",
+        "Reduced manual service processes",
+        "Created a solid foundation for future automations",
+        "System ready for expansion"
+    ]
+}
+
 ]
